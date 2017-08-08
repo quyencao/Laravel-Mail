@@ -3,7 +3,7 @@
 
 Thank for **signing up**. Let us know how we can do more to _please_ you!
 
-@component('mail:panel')
+@component('mail::panel')
     The email address you signed up with us: {{ $user->email }}
 @endcomponent
 

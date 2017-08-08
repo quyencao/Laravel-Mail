@@ -26,4 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $events = [
+        'created' => Events\NewUser::class // event class need to be trigger
+    ];
 }
