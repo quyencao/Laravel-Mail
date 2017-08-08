@@ -10,5 +10,7 @@
 <body>
     <h1>You got Mail!</h1>
     <p>{{ $title }}</p>
+    <p>Here is the image</p>
+    <img src="{{ $message->embed('storage/post-sample-image.jpg') }}">
 </body>
 </html>

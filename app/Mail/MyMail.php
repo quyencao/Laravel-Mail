@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Storage;
 
 class MyMail extends Mailable
 {
@@ -35,6 +36,7 @@ class MyMail extends Mailable
             ->view('email.myMail')
             ->with([
                 'title' => $this->title
-            ]);
+            ])
+            ->attach('storage/post-sample-image.jpg');
     }
 }

@@ -13,6 +13,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use \Illuminate\Support\Facades\Storage;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,3 +24,12 @@ Route::post('/sendmail', function (Request $request) {
            ->send(new \App\Mail\MyMail($request->input('title')));
     return redirect()->back();
 })->name('sendmail');
+
+Route::get('/upload', function () {
+    return view('upload.upload');
+});
+
+Route::post('/upload', function (Request $request) {
+   Storage::putFileAs('public', $request->file('image'), $request->file('image')->getClientOriginalName());
+   return redirect()->back();
+})->name('upload');
