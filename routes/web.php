@@ -11,6 +11,15 @@
 |
 */
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/sendmail', function (Request $request) {
+    Mail::to($request->input('mail'))
+           ->send(new \App\Mail\MyMail($request->input('title')));
+    return redirect()->back();
+})->name('sendmail');
