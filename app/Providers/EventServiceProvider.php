@@ -15,6 +15,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         'App\Events\NewUser' => [
             'App\Listeners\SendWelcomeEmail',
+            'App\Listeners\SendNotification'
         ],
     ];
 

@@ -10,6 +10,11 @@
                 <div class="panel-body">
                     <p>You are logged in!</p>
                     <a href="{{ route('sendemail') }}" class="btn btn-block btn-primary">Send An Email</a>
+                    @if(Auth::user()->notifications)
+                        @foreach(Auth::user()->notifications as $notification)
+                            {{ $notification->data['name'] }} join with us
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
